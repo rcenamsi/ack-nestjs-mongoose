@@ -2,8 +2,8 @@
 # build artefacts
 dist/*
 coverage/*
-e2e-coverage/*
-test-coverage/*
 node_modules/*
 logs/*
-kafka/*
+prod/*
+.husky/*
+.github/*
