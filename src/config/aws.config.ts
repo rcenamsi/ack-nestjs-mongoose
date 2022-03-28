@@ -3,8 +3,6 @@ import { registerAs } from '@nestjs/config';
 export default registerAs(
     'aws',
     (): Record<string, any> => ({
-        bucketCreateFromInit:
-            process.env.AWS_BUCKET_CREATE_FROM_INIT === 'true' || false,
         credential: {
             key: process.env.AWS_CREDENTIAL_KEY,
             secret: process.env.AWS_CREDENTIAL_SECRET,

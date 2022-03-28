@@ -14,12 +14,11 @@ export default registerAs(
         debug: process.env.APP_DEBUG === 'true' || false,
         debugger: {
             http: {
-                active: true,
                 maxFiles: 5,
                 maxSize: '2M',
             },
             system: {
-                active: true,
+                active: false,
                 maxFiles: '7d',
                 maxSize: '2m',
             },

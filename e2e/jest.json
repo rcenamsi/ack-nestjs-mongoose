@@ -1,0 +1,35 @@
+{
+    "testTimeout": 5000,
+    "verbose": true,
+    "rootDir": "..",
+    "modulePaths": [
+        "."
+    ],
+    "testEnvironment": "node",
+    "testMatch": [
+        "<rootDir>/e2e/**/*e2e-spec.ts"
+    ],
+    "collectCoverage": true,
+    "coveragePathIgnorePatterns": [
+        "node_modules", 
+        "vendor",
+        "src",
+        "prod",
+        "test"
+    ],
+    "coverageReporters": [
+        "clover", 
+        "json", 
+        "lcov", 
+        "text"
+    ],
+    "coverageDirectory": "e2e-coverage",
+    "moduleFileExtensions": [
+        "js", 
+        "ts", 
+        "json"
+    ],
+    "transform": {
+        "^.+\\.(t|j)s$": "ts-jest"
+    }
+}

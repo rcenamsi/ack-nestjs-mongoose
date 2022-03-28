@@ -19,9 +19,6 @@ async function bootstrap() {
     // Global Prefix
     app.setGlobalPrefix('/api');
 
-    // Starts listening for shutdown hooks
-    app.enableShutdownHooks();
-
     // Versioning
     if (versioning) {
         app.enableVersioning({
@@ -32,20 +29,37 @@ async function bootstrap() {
 
     // Listen
     await app.listen(port, host);
+
+    logger.log(`==========================================================`);
+    logger.log(`App Environment is ${env}`, 'NestApplication');
+    logger.log(
+        `App Language is ${configService.get<string>('app.language')}`,
+        'NestApplication'
+    );
+    logger.log(
+        `App Debug is ${configService.get<boolean>('app.debug')}`,
+        'NestApplication'
+    );
+    logger.log(`App Timezone is ${tz}`, 'NestApplication');
+    logger.log(
+        `App Versioning is ${versioning ? 'on' : 'off'}`,
+        'NestApplication'
+    );
+    logger.log(
+        `Database Debug is ${configService.get<boolean>('database.debug')}`,
+        'NestApplication'
+    );
+
+    logger.log(`==========================================================`);
+
     logger.log(
         `Database running on ${configService.get<string>(
             'database.host'
         )}/${configService.get<string>('database.name')}`,
         'NestApplication'
     );
-    logger.log(
-        `Database options ${configService.get<string>('database.options')}`,
-        'NestApplication'
-    );
-    logger.log(
-        `App Versioning is ${versioning ? 'on' : 'off'}`,
-        'NestApplication'
-    );
     logger.log(`Server running on ${await app.getUrl()}`, 'NestApplication');
+
+    logger.log(`==========================================================`);
 }
 bootstrap();
